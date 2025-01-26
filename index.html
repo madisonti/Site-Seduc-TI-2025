@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylo.css">
+    <title>VERIFICADOR-SEDUC</title>
+</head>
+<script>
+  
+  //const alertaCaixa = dhttps://github.com/madisonti/projeto_site.gitocument.getElementById("alertaCaixa");
+
+ // alertaCaixa.style.display = "hidden";
+
+</script>
+<body>
+
+  <!-- base do Titulo   -->
+    <div class="base">    
+      <div class="divImg">
+        <img src="icons/logotipo.png" >
+      </div>
+
+      <div class="containerTexto">
+        <h1 class="titulo">Secretaria Municipal de Educação</br>Seduc</h1>
+      </div>
+    </div>          
+                 <!-- base do Titulo  fim  -->
+
+    <div class="container">
+    <h1>Verificar Elegibilidade</h1>
+    <label for="birthdate">Data de Nascimento:</label>
+    <input type="date" id="birthdate" required>
+    
+        <label for="cutoff">Data de Corte:</label>
+        <input type="date" id="cutoff" required>
+    
+            <label for="min-age">Idade Mínima:</label>
+            <input type="number" id="min-age" placeholder="Ex: 6" required>
+    
+  <button onclick="checkEligibility()">Verificar</button>
+  <div class="result" id="result"></div>
+   </div>
+
+<div class="alerta" id="alertaCaixa">
+   <div class="fechar" id="fechar"><span>X</span></div>
+  <div id="conteudo">
+  <span>teste</span>
+    </div>
+    </div>
+    
+      <script>
+
+    const fechar = document.getElementById("fechar");
+        fechar.addEventListener("click", (e) => {
+
+          const alertaCaixa = document.getElementById("alertaCaixa");
+
+          e.preventDefault();
+          alertaCaixa.style.display = "none";
+          
+        })
+        
+        
+        function calculateAge(birthDate, cutoffDate) {
+          const birth = new Date(birthDate);
+            const cutoff = new Date(cutoffDate);
+              let age = cutoff.getFullYear() - birth.getFullYear();
+        
+          if (
+             cutoff.getMonth() < birth.getMonth() || 
+            (cutoff.getMonth() === birth.getMonth() && cutoff.getDate() < birth.getDate()) )
+             {
+            age--;
+          }
+    
+          return age;
+        }
+             ///teste de comite
+        function checkEligibility() {
+          const birthdate = document.getElementById('birthdate').value;
+          const cutoff = document.getElementById('cutoff').value;
+          const minAge = parseInt(document.getElementById('min-age').value);
+          const resultDiv = document.getElementById('result');
+
+          const alertaCaixa = document.getElementById("alertaCaixa");
+          const conteudo = document.getElementById("conteudo");
+
+
+          if (!birthdate || !cutoff || isNaN(minAge)) {
+            //resultDiv.textContent = 'Por favor, preencha todos os campos corretamente.';
+           // resultDiv.style.color = 'red';
+          
+           alertaCaixa.style.display = "flex";
+           conteudo.innerText = "Por favor, preencha todos os campos corretamente."
+        
+            return;
+          }
+    
+          const age = calculateAge(birthdate, cutoff);
+    
+          if (age >= minAge) {
+            //resultDiv.textContent = `Aprovado para matrícula. Idade na data de corte: ${age} anos.`;
+            //resultDiv.style.color = 'green';
+
+            alertaCaixa.style.display = "flex";
+            conteudo.style.color = "green";
+            conteudo.innerText = `Aprovado para matrícula. Idade na data de corte: ${age} anos.`;
+
+
+          } 
+          else 
+          {
+            //resultDiv.textContent = `Não elegível para matrícula. Idade na data de corte: ${age} anos.`;
+            //resultDiv.style.color = 'red';
+
+            alertaCaixa.style.display = "flex";
+            conteudo.style.color = "red";
+            conteudo.innerText =  `Não elegível para matrícula. Idade na data de corte: ${age} anos.`;
+          }
+        }
+      </script>  
+</body>
+</html>

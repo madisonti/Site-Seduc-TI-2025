@@ -1,0 +1,139 @@
+*{
+   margin: 0px;
+   padding: 0px;
+   box-sizing: border-box;
+   overflow: hidden;
+}
+body {
+  width: 100%;
+  height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #998FD4;
+    color: #333;
+  }
+
+  .base{
+    width: "100%";
+    min-width: 480px;
+    background-color: #22097D;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+
+
+  .containerTexto{
+    
+    width: 90%;
+    word-break: break-all;
+  }
+
+  .containerTexto > h1 {
+    margin-right: calc(30% - 10%);
+  }
+
+
+
+
+.titulo{
+ color: white;
+ font-size: 30px;
+ text-wrap: wrap;
+ margin: 0 auto;
+}
+
+  .container {
+    width: 500px;
+    margin: 0  auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: hsl(224, 93%, 45%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 30px;
+    padding: 50px;
+  }
+  h1 {
+    color: antiquewhite;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  label {
+    color: antiquewhite;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  input {
+    width:380px;
+    height: 40px;
+    margin-bottom: 15px;
+    border: 1px solid #bbbeb5;
+    border-radius: 4px;
+  }
+  button {
+    border: black solid 2px;
+    width: 50%;
+    padding: 10px;
+    background-color: hsl(32, 100%, 50%);
+    color:black;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    
+    
+  }
+  button:hover {
+    background-color: #dd0571;
+  }
+  .result {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+  }
+
+
+  .alerta {
+    display: none;
+    flex-direction: column;
+    background-color: black;
+    width: 500px;
+    height: 400px;
+    position: relative;
+    top: -80%;
+    right: -450px;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .alerta > .fechar {
+    width: 100%;
+    color: red;
+    font-size: 20px;
+    padding: 10px;
+    text-align: end;
+    cursor: pointer;
+  }
+
+  .alerta > #conteudo {
+    height: 90%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  @media only screen and (max-width: 600px) {
+    body{
+      background-color: red;
+    }
+    .titulo{
+      font-size: 12px;
+    }
+  }
